@@ -8,6 +8,12 @@
     "types": ["vite/client"],
     "skipLibCheck": true,
 
+    /* PATH ALIASES - ADD THESE TWO LINES */
+    "baseUrl": ".",                          // <--- ADD THIS
+    "paths": {                               // <--- ADD THIS
+      "@/*": ["./src/*"]                     // <--- ADD THIS
+    },                                       // <--- ADD THIS
+
     /* Bundler mode */
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
