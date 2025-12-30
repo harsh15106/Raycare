@@ -47,8 +47,7 @@ const HeroSection = () => {
                 Subscribe to ElderPod
               </Button>
             </div>
-
-            {/* Stats */}
+            
             <div className="mt-10 flex flex-wrap justify-center gap-8 lg:justify-start">
               {[
                 { value: "10,000+", label: "Elders Cared" },
