@@ -1,5 +1,13 @@
 import { motion } from "framer-motion";
-import { Award, Heart, Users, Target } from "lucide-react";
+import { 
+  Award, 
+  Heart, 
+  Target, 
+  Clock, 
+  Users, 
+  Handshake, 
+  Phone 
+} from "lucide-react";
 import QuickInfoBar from "@/components/QuickInfoBar";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -24,13 +32,16 @@ const values = [
     },
 ];
 
-const team = [
-    { name: "Dr. Debabrata Ray", role: "Founder & Chief Physician", image: drRayImage },
+const stats = [
+    { value: "15+", label: "Years of Service", icon: Clock },
+    { value: "10,000+", label: "Elders Cared", icon: Users },
+    { value: "50+", label: "Healthcare Partners", icon: Handshake },
+    { value: "24×7", label: "Support Available", icon: Phone },
 ];
 
 const About = () => {
     return (
-        <div className="min-h-screen">
+        <div className="min-h-screen bg-[#FDFBF7]"> {/* Warm off-white background */}
             <QuickInfoBar />
             <Navbar />
             <main>
@@ -43,13 +54,13 @@ const About = () => {
                             transition={{ duration: 0.5 }}
                             className="mx-auto max-w-3xl text-center"
                         >
-                            <span className="mb-2 inline-block text-sm font-medium uppercase tracking-wider text-primary">
+                            <span className="mb-2 inline-block text-sm font-medium uppercase tracking-wider text-teal-600">
                                 About Us
                             </span>
-                            <h1 className="mb-6 text-4xl font-bold text-foreground md:text-5xl">
-                                Our Story of <span className="text-gradient">Compassionate Care</span>
+                            <h1 className="mb-6 text-4xl font-bold text-slate-900 md:text-5xl">
+                                Our Story of <span className="text-teal-600">Compassionate Care</span>
                             </h1>
-                            <p className="text-lg text-muted-foreground">
+                            <p className="text-lg text-slate-600">
                                 Founded with a vision to revolutionize elder care in India, Raycare
                                 brings world-class healthcare to your loved ones' doorstep.
                             </p>
@@ -68,11 +79,11 @@ const About = () => {
                                 transition={{ duration: 0.5 }}
                             >
                                 <div className="relative">
-                                    <div className="absolute -left-4 -top-4 h-full w-full rounded-2xl bg-primary/10" />
+                                    <div className="absolute -left-4 -top-4 h-full w-full rounded-2xl bg-teal-100/50" />
                                     <img
                                         src={drRayImage}
-                                        alt="Dr. Debabrata Ray - Founder of Raycare"
-                                        className="relative z-10 w-full max-w-md rounded-2xl shadow-card"
+                                        alt="Dr. Debabrata Ray"
+                                        className="relative z-10 w-full max-w-md rounded-2xl shadow-lg"
                                     />
                                 </div>
                             </motion.div>
@@ -83,13 +94,13 @@ const About = () => {
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.5, delay: 0.2 }}
                             >
-                                <span className="mb-2 inline-block text-sm font-medium uppercase tracking-wider text-primary">
+                                <span className="mb-2 inline-block text-sm font-bold uppercase tracking-wider text-teal-600">
                                     Founder's Story
                                 </span>
-                                <h2 className="mb-6 text-3xl font-bold text-foreground md:text-4xl">
+                                <h2 className="mb-6 text-3xl font-bold text-slate-900 md:text-4xl">
                                     Dr. Debabrata Ray, MD
                                 </h2>
-                                <div className="space-y-4 text-muted-foreground">
+                                <div className="space-y-4 text-slate-600 leading-relaxed">
                                     <p>
                                         A gold medalist in Medicine, Dr. Ray has dedicated over 15 years to
                                         the field of geriatric care. After witnessing the struggles faced by
@@ -100,36 +111,31 @@ const About = () => {
                                         to elders at home, keeping families informed and involved, whether they
                                         live next door or across the ocean.
                                     </p>
-                                    <p>
-                                        Today, Raycare serves thousands of families across Kolkata and Nadia,
-                                        with a team of dedicated physicians, nurses, and care managers who
-                                        share Dr. Ray's passion for elder care excellence.
-                                    </p>
                                 </div>
                             </motion.div>
                         </div>
                     </div>
                 </section>
 
-                {/* Values */}
-                <section className="bg-muted/50 py-16 md:py-20">
+                {/* Values Section - Matched to Image */}
+                <section className="py-16 md:py-24">
                     <div className="container mx-auto px-4">
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.5 }}
-                            className="mb-12 text-center"
+                            className="mb-16 text-center"
                         >
-                            <span className="mb-2 inline-block text-sm font-medium uppercase tracking-wider text-primary">
-                                Our Philosophy
+                            <span className="mb-4 inline-block text-xs font-bold uppercase tracking-[0.2em] text-teal-600">
+                                OUR PHILOSOPHY
                             </span>
-                            <h2 className="text-3xl font-bold text-foreground md:text-4xl">
-                                Compassion | Care | Commitment
+                            <h2 className="text-3xl font-bold text-slate-900 md:text-4xl">
+                                Compassion <span className="mx-2 font-light text-slate-300">|</span> Care <span className="mx-2 font-light text-slate-300">|</span> Commitment
                             </h2>
                         </motion.div>
 
-                        <div className="grid gap-6 md:grid-cols-3">
+                        <div className="grid gap-8 md:grid-cols-3">
                             {values.map((value, index) => (
                                 <motion.div
                                     key={index}
@@ -137,35 +143,31 @@ const About = () => {
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true }}
                                     transition={{ duration: 0.5, delay: index * 0.1 }}
-                                    className="rounded-2xl bg-card p-8 text-center shadow-soft"
+                                    whileHover={{ y: -5 }}
+                                    className="group rounded-2xl bg-white p-10 text-center shadow-sm transition-all duration-300 hover:shadow-xl"
                                 >
-                                    <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-primary/10">
-                                        <value.icon className="h-8 w-8 text-primary" />
+                                    <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-teal-50 transition-colors group-hover:bg-teal-100">
+                                        <value.icon className="h-8 w-8 text-teal-600" strokeWidth={1.5} />
                                     </div>
-                                    <h3 className="mb-3 text-xl font-semibold text-foreground">{value.title}</h3>
-                                    <p className="text-muted-foreground">{value.description}</p>
+                                    <h3 className="mb-4 text-xl font-bold text-slate-900">{value.title}</h3>
+                                    <p className="leading-relaxed text-slate-500">{value.description}</p>
                                 </motion.div>
                             ))}
                         </div>
                     </div>
                 </section>
 
-                {/* Stats */}
+                {/* Stats (Kept consistent with new theme) */}
                 <section className="py-16 md:py-20">
                     <div className="container mx-auto px-4">
-                        <div className="rounded-2xl bg-gradient-hero p-8 md:p-12">
-                            <div className="grid gap-8 text-center md:grid-cols-4">
-                                {[
-                                    { value: "15+", label: "Years of Service" },
-                                    { value: "10,000+", label: "Elders Cared" },
-                                    { value: "50+", label: "Healthcare Partners" },
-                                    { value: "24×7", label: "Support Available" },
-                                ].map((stat, index) => (
-                                    <div key={index}>
-                                        <p className="text-4xl font-bold text-primary-foreground md:text-5xl">
+                        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-teal-600 to-teal-500 px-8 py-12 text-white shadow-2xl md:px-12 md:py-16">
+                            <div className="relative z-10 grid gap-10 text-center md:grid-cols-4 md:gap-8">
+                                {stats.map((stat, index) => (
+                                    <div key={index} className="flex flex-col items-center">
+                                        <p className="mb-1 text-4xl font-bold tracking-tight md:text-5xl">
                                             {stat.value}
                                         </p>
-                                        <p className="mt-2 text-primary-foreground/80">{stat.label}</p>
+                                        <p className="font-medium text-teal-100">{stat.label}</p>
                                     </div>
                                 ))}
                             </div>
